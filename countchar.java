@@ -18,6 +18,6 @@ public class countchar {
         	}
         	b=i;
         }
-        System.out.print(arr[b]+""+c);
+    System.out.print(arr[b]+""+c);
 	}
 }
