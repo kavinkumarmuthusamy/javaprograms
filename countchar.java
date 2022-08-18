@@ -20,5 +20,4 @@ public class countchar {
         }
         System.out.print(arr[b]+""+c);
 	}
-
 }
