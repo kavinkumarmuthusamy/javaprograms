@@ -1,0 +1,163 @@
+package Date25;
+import java.util.*;
+
+public class MissingNum {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Size:");
+	int s=sc.nextInt();
+	int arr[]=new int[s];
+	ArrayList<Integer> g=new ArrayList<>();
+	System.out.println("Enter the Elements");
+	for(int i=0;i<s;i++) {
+		arr[i]=sc.nextInt();
+		g.add(arr[i]);
+	}
+	Arrays.sort(arr);
+	Collections.sort(g);
+	int diff=Math.abs(arr[0]-arr[1]);
+	for(int i=0;i<arr.length-1;i++) {
+		if(Math.abs(arr[i]-arr[i+1])==diff) {
+
+		}
+		else {
+			g.add(i+1,arr[i]+diff);
+		}
+	}
+	for (Integer integer : g) {
+		System.out.println(integer);
+	}
+}
+}
+ 29  
+equl.java
+@@ -0,0 +1,29 @@
+package Date25;
+
+import java.util.Scanner;
+
+public class equl {
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter Size:");
+	int s=sc.nextInt();
+	int arr[]=new int[s];
+	System.out.println("Enter the Elements");
+	for(int i=0;i<s;i++) {
+		arr[i]=sc.nextInt();
+	}
+	int sum1=0,sum2=0;
+	for (int i = 0; i < arr.length; i++) {
+		if(i<(arr.length/2)) {
+			sum1+=arr[i];
+		}else if(i>arr.length/2) {
+			sum2+=arr[i];
+		}
+	}
+	if(sum1==sum2) {
+		System.out.println(arr.length/2);
+	}else {
+		System.out.println("-1");
+	}
+	}
+}
+ 39  
+ip_valid.java
+@@ -0,0 +1,39 @@
+package Date25;
+
+import java.util.Scanner;
+
+public class ip_valid {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the ip:");
+		String s=sc.nextLine();
+		String [] val=s.split("[.]");
+		try {
+		if(val.length==4) {
+			Boolean q=true;
+			for (String st: val) {
+
+				if(Integer.parseInt(st)<256 && Integer.parseInt(st)>0) {
+					continue;
+				}
+				else {
+					q=false;
+					break;
+				}
+
+			}if(q) {
+			System.out.println("valid");
+			}else {
+				System.out.println("Invalid");
+			}
+		}
+
+		else {
+			System.out.println("Invalid");
+		}
+		}
+		catch (Exception e) {
+			System.out.println("Invalid");
+		}
+	}
+}
+ 25  
+sub_valid.java
+@@ -0,0 +1,25 @@
+package Date25;
+import java.util.Scanner;
+public class sub_valid {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+//		System.out.println("Enter the size:");
+//		String s=sc.nextLine();
+		int ar[]= {4,-3,-1,6};
+		int sum=0;
+		for (int i : ar) {
+			if(i==0) {
+				System.out.println("yes");
+				break;
+			}else {
+				sum+=i;
+				if(sum==0) {
+					System.out.println("yes");
+					break;
+				}
+			}
+		}
+
+	}
+
+}
+ 27  
+towerPRg.java
+@@ -0,0 +1,27 @@
+package Date25;
+public class towerPRg {
+public static void main(String[] args) {
+	int a[]= {1,5,8,10};
+	int key=2;
+	for (int i = 0; i < a.length; i++) {
+		if(a[i]<key){
+			a[i]=a[i]+key;
+		}
+		else if(a[i]>key){
+			a[i]=a[i]-key;
+		}
+	}
+	int max=a[0];
+	int min=a[1];
+	for (int i : a) {
+		if(i>max) {
+			max=i;
+		}
+		if(i<min) {
+			min=i;
+		}
+		System.out.println(i);
+	}
+	System.out.println("element : "+(max-min));
+}
+}
