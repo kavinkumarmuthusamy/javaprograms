@@ -1,48 +1,46 @@
-package newpack;
+package diva;
 import java.util.*;
 public class longestsubstring {
-
-	public static void main(String[] args) {
-		Scanner in=new Scanner(System.in);
-		System.out.println("Enter the string");
-        String s=in.nextLine();
-        char srr[]=s.toCharArray();
-        int a=0;
-        int b=0;
-        int c=0;
-        int d=0;
-        int e=0;
-        int z=0;
-        for(int i=0;i<srr.length;i++) { 
-        	c=1;
-        	for(int j=i+1;j<srr.length;j++) {
-        		a=j+1;
-        		if(srr[i]==srr[j]) {
-        			break;
-        		}
-        		c++;
-        	}
-        	 z=0;
-        	if(c>b) {
-        		
-        		for(int k=i;k<a;k++) {
-        			for(int l=k+1;l<a;l++) {
-        				if(srr[k]==srr[l]) {
-        					z=1;break;
-        				}
-        			}
-        		}
-        		if(z==0) {
-        		b=c;
-        		d=a;
-        		e=i;}
-        	}
-        	
-        }
-        System.out.println("length "+b);
-        for(int i=e;i<d;i++) {
-        	System.out.print(srr[i]);
-        }
+	int d=0;
+	public longestsubstring(int e,int f,char arr[]){
+		d=0;
+		for(int i=e;i<f-1;i++) {
+			int c=1;
+			for(int j=i+1;j<f;j++) {
+				if(arr[i]==arr[j]) {
+					d=0;
+					break;
+				}
+				c++;
+				if(d<c) {
+					d=c;
+				}
+			}
+		}
+//		System.out.println(d);
 	}
 
+	public static void main(String[] args) {
+		Scanner in =new Scanner (System.in);
+		System.out.println("Enter the string");
+		String a=in.nextLine();
+		char arr[]=a.toCharArray();
+		int c=0,z=0;
+		int e=0,f=0;
+		for(int i=0;i<arr.length-1;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[i]==arr[j]||j==arr.length) {
+					e=i;
+					f=j;
+					longestsubstring  obj=new longestsubstring(e,f,arr);
+					if(z<obj.d) {
+						z=obj.d;
+					}
+				}
+				
+			}
+		}
+		System.out.println(z);
+	
+	}
 }
