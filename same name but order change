@@ -1,0 +1,31 @@
+ String str[]={"tan","nta","atn","eat","ate","ban"};
+         String[] arr=new String[str.length];
+         for(int i=0;i<str.length;i++){
+            char array[]=str[i].toCharArray();
+            arr[i]="";
+            for(int j=0;j<array.length;j++){
+              for(int k=j+1;k<array.length;k++){
+                int z=array[j];
+               int y=array[k];
+               if(z>y){
+                   char x=array[j];
+                   array[j]=array[k];
+                   array[k]=x;
+               }   
+            }
+            arr[i]+=array[j];
+            }
+         }
+         for(int i=0;i<arr.length;i++){
+            if(arr[i]!="o"){
+             System.out.print(str[i]+" ");}
+               for(int j=i+1;j<arr.length;j++){
+                  if(arr[i].equals(arr[j])&&arr[i]!="o"){
+                     System.out.print(str[j]+" ");
+                     arr[j]="o";
+                  }
+               }
+               // System.out.println(arr[i]);
+                if(arr[i]!="o"){
+               System.out.println();}
+         }
